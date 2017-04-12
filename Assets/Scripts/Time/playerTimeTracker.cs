@@ -8,7 +8,9 @@ public class playerTimeTracker : rigidBodyTimeTracker
 {
     public override void Pause()
     {
-        state = State.PAUSE;
-        base.rB.isKinematic = false;
+        state = State.PLAY;
+        rB.isKinematic = false;
+        currFrameIndex = Mathf.Clamp(currFrameIndex - 1, 0, reel.Count - 1);
+        reel.RemoveRange(currFrameIndex + 1, reel.Count - currFrameIndex - 1);
     }
 }

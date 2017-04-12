@@ -9,6 +9,7 @@ public class cameraTimeTracker : MonoBehaviour, ITimeTracker
     ColorCorrectionCurves ccc;
     void Start () {
         ccc = GetComponent<ColorCorrectionCurves>();
+        Play();
     }
 
     public void Play()

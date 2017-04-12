@@ -7,15 +7,26 @@ public class timeManager : MonoBehaviour
 {
 
     List<timeTracker> trackedObjects;
+    playerTimeTracker playerTracker;
     cameraTimeTracker cameraTracker;
+    MagicTarget target;
     void Start()
     {
         trackedObjects = new List<timeTracker>();
         foreach (timeTracker t in FindObjectsOfType<timeTracker>())
         {
-            trackedObjects.Add(t);
+            if(t is playerTimeTracker)
+            {
+                playerTracker = (playerTimeTracker) t;
+            }
+            else
+            {
+                trackedObjects.Add(t);
+            }
+            
         }
         cameraTracker = FindObjectOfType<cameraTimeTracker>();
+        target = MagicTarget.ENVIRONMENT;
     }
 
     // Update is called once per frame
@@ -40,42 +51,81 @@ public class timeManager : MonoBehaviour
         {
             FastForward();
         }
+
+        if(Input.GetButtonDown("SwitchMagicTarget"))
+        {
+            target = (MagicTarget) (((int) target + 1) % System.Enum.GetNames(typeof(MagicTarget)).Length);
+        }
     }
 
     public void Play()
     {
-        foreach (timeTracker t in trackedObjects)
+        if (target == MagicTarget.ENVIRONMENT)
         {
-            t.Play();
+            foreach (timeTracker t in trackedObjects)
+            {
+                t.Play();
+            }
+        }
+        else
+        {
+            playerTracker.Play();
         }
         cameraTracker.Play();
     }
 
     public void Pause()
     {
-        foreach (timeTracker t in trackedObjects)
+        if (target == MagicTarget.ENVIRONMENT)
         {
-            t.Pause();
+            foreach (timeTracker t in trackedObjects)
+            {
+                t.Pause();
+            }
+        }
+        else
+        {
+            playerTracker.Pause();
         }
         cameraTracker.Pause();
     }
 
     public void Rewind()
     {
-        foreach (timeTracker t in trackedObjects)
+        if (target == MagicTarget.ENVIRONMENT)
         {
-            t.Rewind();
+            foreach (timeTracker t in trackedObjects)
+            {
+                t.Rewind();
+            }
+        }
+        else
+        {
+            playerTracker.Rewind();
         }
         cameraTracker.Rewind();
     }
 
     public void FastForward()
     {
-        foreach (timeTracker t in trackedObjects)
+        if (target == MagicTarget.ENVIRONMENT)
         {
-            t.FastForward();
+            foreach (timeTracker t in trackedObjects)
+            {
+                t.FastForward();
+            }
+        }
+        else
+        {
+            playerTracker.FastForward();
         }
         cameraTracker.FastForward();
+    }
+
+    public enum MagicTarget
+    {
+        PLAYER,
+        ENVIRONMENT
     }
 
 
