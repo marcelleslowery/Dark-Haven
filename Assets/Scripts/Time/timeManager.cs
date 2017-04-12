@@ -7,12 +7,14 @@ public class timeManager : MonoBehaviour
 {
 
     List<timeTracker> trackedObjects;
+    List<aiTimeTracker> trackedAI;
     playerTimeTracker playerTracker;
     cameraTimeTracker cameraTracker;
     MagicTarget target;
     void Start()
     {
         trackedObjects = new List<timeTracker>();
+        trackedAI = new List<aiTimeTracker>();
         foreach (timeTracker t in FindObjectsOfType<timeTracker>())
         {
             if(t is playerTimeTracker)
@@ -24,6 +26,10 @@ public class timeManager : MonoBehaviour
                 trackedObjects.Add(t);
             }
             
+        }
+        foreach(aiTimeTracker t in FindObjectsOfType<aiTimeTracker>())
+        {
+            trackedAI.Add(t);
         }
         cameraTracker = FindObjectOfType<cameraTimeTracker>();
         target = MagicTarget.ENVIRONMENT;
@@ -66,6 +72,10 @@ public class timeManager : MonoBehaviour
             {
                 t.Play();
             }
+            foreach (aiTimeTracker t in trackedAI)
+            {
+                t.Play();
+            }
         }
         else
         {
@@ -79,6 +89,10 @@ public class timeManager : MonoBehaviour
         if (target == MagicTarget.ENVIRONMENT)
         {
             foreach (timeTracker t in trackedObjects)
+            {
+                t.Pause();
+            }
+            foreach (aiTimeTracker t in trackedAI)
             {
                 t.Pause();
             }
@@ -98,6 +112,10 @@ public class timeManager : MonoBehaviour
             {
                 t.Rewind();
             }
+            foreach (aiTimeTracker t in trackedAI)
+            {
+                t.Rewind();
+            }
         }
         else
         {
@@ -111,6 +129,10 @@ public class timeManager : MonoBehaviour
         if (target == MagicTarget.ENVIRONMENT)
         {
             foreach (timeTracker t in trackedObjects)
+            {
+                t.FastForward();
+            }
+            foreach (aiTimeTracker t in trackedAI)
             {
                 t.FastForward();
             }

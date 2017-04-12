@@ -88,12 +88,17 @@
     <Compile Include="Assets\Scripts\LevelScripts\ControlsTutorial.cs" />
     <Compile Include="Assets\Scripts\LevelScripts\HintManagement.cs" />
     <Compile Include="Assets\Scripts\LevelScripts\ThirdPersonOrbitCam.cs" />
+    <Compile Include="Assets\Scripts\Time\aiTimeTracker.cs" />
     <Compile Include="Assets\Scripts\Time\playerTimeTracker.cs" />
     <Compile Include="Assets\Scripts\Time\rigidBodyTimeTracker.cs" />
     <Compile Include="Assets\Scripts\Time\timeManager.cs" />
     <Compile Include="Assets\Scripts\Time\timeTracker.cs" />
     <Compile Include="Assets\Scripts\UDFloaters.cs" />
+    <Compile Include="Assets\Scripts\actionableDoor.cs" />
+    <Compile Include="Assets\basicAI.cs" />
+    <Compile Include="Assets\buttonScript.cs" />
     <Compile Include="Assets\cameraTimeTracker.cs" />
+    <Compile Include="Assets\patrolAndChaseAI.cs" />
     <Compile Include="Assets\playerControl.cs" />
   </ItemGroup>
   <ItemGroup>
