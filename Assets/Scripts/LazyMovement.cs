@@ -17,6 +17,7 @@ public class LazyMovement : MonoBehaviour {
     private float v;                                // Vertical Axis.
     private bool sprint;
     private bool jump;
+    private bool unJump;
     private float distToGround;
     private float jumpTimer;
 
@@ -35,12 +36,17 @@ public class LazyMovement : MonoBehaviour {
         v = Input.GetAxis("Vertical");
         sprint = Input.GetButton("Sprint");
         jump = Input.GetButton("Jump");
+        unJump = Input.GetButtonUp("Jump");
 
         // Won't be here if we use root motion!!!
         Movement(h, v, sprint);
         if (jump)
         {
             Jumping();
+        }
+        else if (unJump)
+        {
+            UnJump();
         }
         Rotating(h, v);
 
@@ -71,6 +77,14 @@ public class LazyMovement : MonoBehaviour {
             Debug.Log("JUMP");
             rbody.velocity = rbody.velocity + new Vector3(0, JumpSpeed, 0);
             jumpTimer = 0f;
+        }
+    }
+
+    void UnJump() //allows dynamic control of jumpheight - this is how supermeatboy does it
+    {
+        if(rbody.velocity.y > 0)
+        {
+            rbody.velocity= rbody.velocity + new Vector3(0, -(rbody.velocity.y / 1.5f), 0);
         }
     }
 
