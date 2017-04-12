@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\LevelScripts\ControlsTutorial.cs" />
     <Compile Include="Assets\Scripts\LevelScripts\HintManagement.cs" />
     <Compile Include="Assets\Scripts\LevelScripts\ThirdPersonOrbitCam.cs" />
+    <Compile Include="Assets\Scripts\RockFallController.cs" />
     <Compile Include="Assets\Scripts\Time\aiTimeTracker.cs" />
     <Compile Include="Assets\Scripts\Time\playerTimeTracker.cs" />
     <Compile Include="Assets\Scripts\Time\rigidBodyTimeTracker.cs" />
@@ -99,9 +100,11 @@
     <Compile Include="Assets\buttonScript.cs" />
     <Compile Include="Assets\cameraTimeTracker.cs" />
     <Compile Include="Assets\patrolAndChaseAI.cs" />
+    <Compile Include="Assets\pendulumScript.cs" />
     <Compile Include="Assets\playerControl.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\FelineGargoyle\readme_first.txt" />
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
