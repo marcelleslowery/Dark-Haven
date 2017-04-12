@@ -18,10 +18,10 @@ public class GateController : MonoBehaviour {
 	void Update () {
 
 		if (gate.position.y >= 11f) {
-			myPos.y = -0.5f;
+			myPos.y = -0.8f;
 		}
 		if (gate.position.y <= 4f) {
-			myPos.y = 0.2f;
+			myPos.y = 0.3f;
 		}
 
 		if (stopped) {
