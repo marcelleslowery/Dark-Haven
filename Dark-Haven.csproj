@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scripts\Time\timeTracker.cs" />
     <Compile Include="Assets\Scripts\UDFloaters.cs" />
     <Compile Include="Assets\cameraTimeTracker.cs" />
+    <Compile Include="Assets\playerControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
