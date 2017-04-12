@@ -7,6 +7,7 @@ public class timeManager : MonoBehaviour
 {
 
     List<timeTracker> trackedObjects;
+    cameraTimeTracker cameraTracker;
     void Start()
     {
         trackedObjects = new List<timeTracker>();
@@ -14,6 +15,7 @@ public class timeManager : MonoBehaviour
         {
             trackedObjects.Add(t);
         }
+        cameraTracker = FindObjectOfType<cameraTimeTracker>();
     }
 
     // Update is called once per frame
@@ -46,6 +48,7 @@ public class timeManager : MonoBehaviour
         {
             t.Play();
         }
+        cameraTracker.Play();
     }
 
     public void Pause()
@@ -54,6 +57,7 @@ public class timeManager : MonoBehaviour
         {
             t.Pause();
         }
+        cameraTracker.Pause();
     }
 
     public void Rewind()
@@ -62,6 +66,7 @@ public class timeManager : MonoBehaviour
         {
             t.Rewind();
         }
+        cameraTracker.Rewind();
     }
 
     public void FastForward()
@@ -70,6 +75,7 @@ public class timeManager : MonoBehaviour
         {
             t.FastForward();
         }
+        cameraTracker.FastForward();
     }
 
 
