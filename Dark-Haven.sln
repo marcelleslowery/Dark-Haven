@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dark-Haven", "Dark-Haven.csproj", "{9A976558-5C04-0AE6-4D86-D788DBAEE1CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dark-Haven.Editor", "Dark-Haven.Editor.csproj", "{33F13B35-4369-5E49-C19D-94D5C783BEE1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,10 +13,6 @@ Global
 		{9A976558-5C04-0AE6-4D86-D788DBAEE1CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A976558-5C04-0AE6-4D86-D788DBAEE1CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A976558-5C04-0AE6-4D86-D788DBAEE1CD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{33F13B35-4369-5E49-C19D-94D5C783BEE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{33F13B35-4369-5E49-C19D-94D5C783BEE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{33F13B35-4369-5E49-C19D-94D5C783BEE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{33F13B35-4369-5E49-C19D-94D5C783BEE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
