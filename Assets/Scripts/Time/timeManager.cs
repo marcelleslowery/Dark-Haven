@@ -24,7 +24,7 @@ public class timeManager : MonoBehaviour
             Play();
         }
 
-        if (Input.GetButtonDown("Pause"))
+        if (Input.GetButtonDown("Pause") || Input.GetButtonUp("Rewind") || Input.GetButtonUp("FastForward"))
         {
             Pause();
         }

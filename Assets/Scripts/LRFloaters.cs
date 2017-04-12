@@ -9,6 +9,8 @@ public class LRFloaters : MonoBehaviour {
 	Vector3 myPos;
 	bool stopped;
 
+    public float width = 20.0f;
+    public float speed = 1.0f;
     timeTracker tT;
 
 	void Start () {
@@ -23,13 +25,13 @@ public class LRFloaters : MonoBehaviour {
 
         if(tT.IsTimeMoving())
         {
-            if (floater.position.x >= 11f)
+            if (floater.position.x >= width / 2.0f)
             {
-                myPos.x = -0.1f;
+                myPos.x = -speed * Time.deltaTime;
             }
-            if (floater.position.x <= -11f)
+            if (floater.position.x <= -width / 2.0f)
             {
-                myPos.x = 0.1f;
+                myPos.x = speed * Time.deltaTime;
             }
 
             if (stopped)

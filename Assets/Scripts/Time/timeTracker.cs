@@ -14,7 +14,7 @@ public interface ITimeTracker
 public class timeTracker : MonoBehaviour, ITimeTracker
 {
 
-    Rigidbody rB;
+    protected Rigidbody rB;
     public State state;
 
     List<frame> reel;
@@ -77,7 +77,7 @@ public class timeTracker : MonoBehaviour, ITimeTracker
         rB.isKinematic = true;
     }
 
-    public void Pause()
+    public virtual void Pause()
     {
         state = State.PAUSE;
         rB.isKinematic = true;

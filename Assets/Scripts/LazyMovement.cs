@@ -7,7 +7,7 @@ public class LazyMovement : MonoBehaviour {
     public float turnSmoothing = 3.0f;             // Speed of turn when moving to match camera facing.
     public float WalkSpeed = 5.0f;
     public float SprintSpeed = 10.0f;
-    public float JumpSpeed = 1.0f;
+    public float JumpSpeed = 5.0f;
     public float JumpThreshold = 1.0f;
 
     private ThirdPersonOrbitCam camScript;         // Reference to the third person camera script
