@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\LevelScripts\HintManagement.cs" />
     <Compile Include="Assets\Scripts\LevelScripts\ThirdPersonOrbitCam.cs" />
     <Compile Include="Assets\Scripts\Time\playerTimeTracker.cs" />
+    <Compile Include="Assets\Scripts\Time\rigidBodyTimeTracker.cs" />
     <Compile Include="Assets\Scripts\Time\timeManager.cs" />
     <Compile Include="Assets\Scripts\Time\timeTracker.cs" />
     <Compile Include="Assets\Scripts\UDFloaters.cs" />

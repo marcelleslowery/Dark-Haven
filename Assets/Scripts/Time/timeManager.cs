@@ -19,12 +19,12 @@ public class timeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Play"))
+        if (Input.GetButtonDown("Play") || Input.GetButtonUp("FastForward"))
         {
             Play();
         }
 
-        if (Input.GetButtonDown("Pause") || Input.GetButtonUp("Rewind") || Input.GetButtonUp("FastForward"))
+        if (Input.GetButtonDown("Pause") || Input.GetButtonUp("Rewind"))
         {
             Pause();
         }

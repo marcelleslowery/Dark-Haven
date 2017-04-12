@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(LazyMovement))]
-public class playerTimeTracker : timeTracker
+public class playerTimeTracker : rigidBodyTimeTracker
 {
     public override void Pause()
     {
