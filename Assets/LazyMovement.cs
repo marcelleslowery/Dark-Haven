@@ -7,8 +7,6 @@ public class LazyMovement : MonoBehaviour {
     public float turnSmoothing = 3.0f;             // Speed of turn when moving to match camera facing.
     public float WalkSpeed = 5.0f;
     public float SprintSpeed = 10.0f;
-    public float JumpSpeed = 1.0f;
-    public float JumpThreshold = 1.0f;
 
     private ThirdPersonOrbitCam camScript;         // Reference to the third person camera script
     private Vector3 lastDirection;                 // Last direction the player was moving.
@@ -16,17 +14,12 @@ public class LazyMovement : MonoBehaviour {
     private float h;                                // Horizontal Axis.
     private float v;                                // Vertical Axis.
     private bool sprint;
-    private bool jump;
-    private float distToGround;
-    private float jumpTimer;
 
 
     // Use this for initialization
     void Start () {
 		camScript = playerCamera.GetComponent<ThirdPersonOrbitCam> ();
         rbody = GetComponent<Rigidbody>();
-        distToGround = GetComponent<Collider>().bounds.extents.y;
-        jumpTimer = 1.0f;
     }
 
     // Update is called once per frame
@@ -34,20 +27,14 @@ public class LazyMovement : MonoBehaviour {
         h = Input.GetAxis("Horizontal");
         v = Input.GetAxis("Vertical");
         sprint = Input.GetButton("Sprint");
-        jump = Input.GetButton("Jump");
 
         // Won't be here if we use root motion!!!
         Movement(h, v, sprint);
-        if (jump)
-        {
-            Jumping();
-        }
+
         Rotating(h, v);
+	}
 
-        jumpTimer += Time.deltaTime;
-    }
-
-    void Movement(float horizontal, float vertical, bool sprintOn)
+    public void Movement(float horizontal, float vertical, bool sprintOn)
     {
         Vector3 forward = playerCamera.TransformDirection(Vector3.forward);
 
@@ -63,19 +50,8 @@ public class LazyMovement : MonoBehaviour {
         transform.position += targetDirection * Time.deltaTime * (sprintOn ? SprintSpeed : WalkSpeed);
     }
 
-    void Jumping()
-    {
-        bool grounded = Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
-        if (grounded && jumpTimer >= JumpThreshold)
-        {
-            Debug.Log("JUMP");
-            rbody.velocity = rbody.velocity + new Vector3(0, JumpSpeed, 0);
-            jumpTimer = 0f;
-        }
-    }
-
     // Put the player on a standing up position based on last direction faced.
-    void Repositioning()
+    public void Repositioning()
     {
         if (lastDirection != Vector3.zero)
         {
