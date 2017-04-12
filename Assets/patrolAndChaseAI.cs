@@ -87,6 +87,11 @@ public class patrolAndChaseAI : MonoBehaviour {
                 animator.SetFloat("H", 0);
                 animator.SetFloat("V", v);
                 animator.SetFloat("Speed", Mathf.Clamp(Mathf.Abs(v), 0, maxChaseSpeed));
+
+                if (v > agent.radius)
+                {
+                    agent.nextPosition = transform.position + 0.9f * (agent.nextPosition - transform.position);
+                }
                 break;
         }
         

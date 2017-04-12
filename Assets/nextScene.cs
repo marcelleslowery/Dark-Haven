@@ -4,9 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class nextScene : MonoBehaviour {
+    public int sceneIndex = -1;
     private void OnTriggerEnter(Collider other)
     {
-        int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-        SceneManager.LoadScene(nextScene);
+        if (sceneIndex == -1)
+        {
+            sceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        }
+        
+        SceneManager.LoadScene(sceneIndex);
     }
 }
