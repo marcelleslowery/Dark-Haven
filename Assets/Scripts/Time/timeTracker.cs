@@ -18,9 +18,7 @@ public class timeTracker : MonoBehaviour, ITimeTracker
     protected List<frame> reel;
     protected int currFrameIndex;
 
-    protected int ffSpeed = 4;
-
-    private timeManager tM;
+    protected timeManager tM;
 
 
     virtual protected void Start()

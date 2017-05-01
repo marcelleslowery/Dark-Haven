@@ -11,7 +11,7 @@ public class timeManager : MonoBehaviour
     playerTimeTracker playerTracker;
     cameraTimeTracker cameraTracker;
     MagicTarget target;
-    public float accelRate = 0.1f;
+    public float accelRate = 1.4f;
 
     public float speed = 0.0f;
     public float maxSpeed = 100.0f;

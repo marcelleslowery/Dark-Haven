@@ -10,8 +10,6 @@ public class aiTimeTracker : MonoBehaviour, ITimeTracker
 
     protected List<frame> reel;
     protected int currFrameIndex;
-
-    protected int ffSpeed = 4;
     protected Rigidbody rB;
 
     private patrolAndChaseAI ai;

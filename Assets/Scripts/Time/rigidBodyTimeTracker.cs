@@ -7,7 +7,6 @@ public class rigidBodyTimeTracker : timeTracker
 {
 
     protected Rigidbody rB;
-    private timeManager tM;
 
     override protected void Start()
     {
@@ -15,7 +14,7 @@ public class rigidBodyTimeTracker : timeTracker
         base.state = State.PLAY;
         base.reel = new List<frame>();
         base.currFrameIndex = 0;
-        tM = FindObjectOfType<timeManager>();
+        base.tM = FindObjectOfType<timeManager>();
     }
 
     override protected void Update()
