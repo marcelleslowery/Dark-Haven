@@ -15,6 +15,9 @@ public class aiTimeTracker : MonoBehaviour, ITimeTracker
     protected Rigidbody rB;
 
     private patrolAndChaseAI ai;
+
+    private timeManager tM;
+
     virtual protected void Start()
     {
         state = State.PLAY;
@@ -22,6 +25,7 @@ public class aiTimeTracker : MonoBehaviour, ITimeTracker
         currFrameIndex = 0;
         ai = GetComponent<patrolAndChaseAI>();
         rB = GetComponent<Rigidbody>();
+        tM = FindObjectOfType<timeManager>();
     }
 
     virtual protected void Update()
@@ -35,18 +39,18 @@ public class aiTimeTracker : MonoBehaviour, ITimeTracker
             case State.PAUSE:
                 break;
             case State.REWIND:
-                currFrameIndex = Mathf.Clamp(currFrameIndex - 1, 0, reel.Count - 1);
+                currFrameIndex = Mathf.Clamp(currFrameIndex - Mathf.CeilToInt(tM.speed), 0, reel.Count - 1);
                 transform.position = reel[currFrameIndex].position;
                 transform.rotation = reel[currFrameIndex].rotation;
                 ai.fromSave(reel[currFrameIndex].aiSave);
                 break;
             case State.FASTFORWARD:
-                currFrameIndex = Mathf.Clamp(currFrameIndex + ffSpeed, 0, reel.Count - 1);
+                currFrameIndex = Mathf.Clamp(currFrameIndex + Mathf.CeilToInt(tM.speed), 0, reel.Count - 1);
                 transform.position = reel[currFrameIndex].position;
                 transform.rotation = reel[currFrameIndex].rotation;
                 if (currFrameIndex == reel.Count - 1)
                 {
-                    Pause();
+                    Play();
                 }
                 ai.fromSave(reel[currFrameIndex].aiSave);
                 break;

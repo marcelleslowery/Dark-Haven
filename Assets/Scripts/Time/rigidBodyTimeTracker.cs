@@ -7,6 +7,7 @@ public class rigidBodyTimeTracker : timeTracker
 {
 
     protected Rigidbody rB;
+    private timeManager tM;
 
     override protected void Start()
     {
@@ -14,7 +15,7 @@ public class rigidBodyTimeTracker : timeTracker
         base.state = State.PLAY;
         base.reel = new List<frame>();
         base.currFrameIndex = 0;
-
+        tM = FindObjectOfType<timeManager>();
     }
 
     override protected void Update()
@@ -28,17 +29,17 @@ public class rigidBodyTimeTracker : timeTracker
             case State.PAUSE:
                 break;
             case State.REWIND:
-                currFrameIndex = Mathf.Clamp(currFrameIndex - 1, 0, reel.Count - 1);
+                currFrameIndex = Mathf.Clamp(currFrameIndex - Mathf.CeilToInt(tM.speed), 0, reel.Count - 1);
                 transform.position = reel[currFrameIndex].position;
                 transform.rotation = reel[currFrameIndex].rotation;
                 break;
             case State.FASTFORWARD:
-                currFrameIndex = Mathf.Clamp(currFrameIndex + ffSpeed, 0, reel.Count - 1);
+                currFrameIndex = Mathf.Clamp(currFrameIndex + Mathf.CeilToInt(tM.speed), 0, reel.Count - 1);
                 transform.position = reel[currFrameIndex].position;
                 transform.rotation = reel[currFrameIndex].rotation;
                 if (currFrameIndex == reel.Count - 1)
                 {
-                    Pause();
+                    Play();
                 }
                 break;
             default:

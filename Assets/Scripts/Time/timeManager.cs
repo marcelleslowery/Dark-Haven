@@ -11,8 +11,16 @@ public class timeManager : MonoBehaviour
     playerTimeTracker playerTracker;
     cameraTimeTracker cameraTracker;
     MagicTarget target;
+    public float accelRate = 0.1f;
+
+    public float speed = 0.0f;
+    public float maxSpeed = 100.0f;
+
+    private timeTracker.State state;
+
     void Start()
     {
+        state = timeTracker.State.PLAY;
         trackedObjects = new List<timeTracker>();
         trackedAI = new List<aiTimeTracker>();
         foreach (timeTracker t in FindObjectsOfType<timeTracker>())
@@ -62,10 +70,17 @@ public class timeManager : MonoBehaviour
         {
             target = (MagicTarget) (((int) target + 1) % System.Enum.GetNames(typeof(MagicTarget)).Length);
         }
+
+        if(state == timeTracker.State.FASTFORWARD || state == timeTracker.State.REWIND)
+        {
+            speed = Mathf.Clamp(speed + accelRate * Time.deltaTime, 0.0f, maxSpeed);
+        }
     }
 
     public void Play()
     {
+        state = timeTracker.State.PLAY;
+        speed = 0.0f;
         if (target == MagicTarget.ENVIRONMENT)
         {
             foreach (timeTracker t in trackedObjects)
@@ -86,6 +101,8 @@ public class timeManager : MonoBehaviour
 
     public void Pause()
     {
+        state = timeTracker.State.PAUSE;
+        speed = 0.0f;
         if (target == MagicTarget.ENVIRONMENT)
         {
             foreach (timeTracker t in trackedObjects)
@@ -106,6 +123,8 @@ public class timeManager : MonoBehaviour
 
     public void Rewind()
     {
+        state = timeTracker.State.REWIND;
+        speed = 0.0f;
         if (target == MagicTarget.ENVIRONMENT)
         {
             foreach (timeTracker t in trackedObjects)
@@ -126,6 +145,8 @@ public class timeManager : MonoBehaviour
 
     public void FastForward()
     {
+        state = timeTracker.State.FASTFORWARD;
+        speed = 0.0f;
         if (target == MagicTarget.ENVIRONMENT)
         {
             foreach (timeTracker t in trackedObjects)
@@ -142,6 +163,7 @@ public class timeManager : MonoBehaviour
             playerTracker.FastForward();
         }
         cameraTracker.FastForward();
+        
     }
 
     public enum MagicTarget
