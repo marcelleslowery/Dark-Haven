@@ -43,13 +43,14 @@ public class aiTimeTracker : MonoBehaviour, ITimeTracker
                 ai.fromSave(reel[currFrameIndex].aiSave);
                 break;
             case State.FASTFORWARD:
+                if (currFrameIndex == reel.Count - 1)
+                {
+                    tM.Play();
+                    break;
+                }
                 currFrameIndex = Mathf.Clamp(currFrameIndex + Mathf.CeilToInt(tM.speed), 0, reel.Count - 1);
                 transform.position = reel[currFrameIndex].position;
                 transform.rotation = reel[currFrameIndex].rotation;
-                if (currFrameIndex == reel.Count - 1)
-                {
-                    Play();
-                }
                 ai.fromSave(reel[currFrameIndex].aiSave);
                 break;
             default:

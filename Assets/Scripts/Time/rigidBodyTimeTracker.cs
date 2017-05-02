@@ -33,13 +33,14 @@ public class rigidBodyTimeTracker : timeTracker
                 transform.rotation = reel[currFrameIndex].rotation;
                 break;
             case State.FASTFORWARD:
-                currFrameIndex = Mathf.Clamp(currFrameIndex + Mathf.CeilToInt(tM.speed), 0, reel.Count - 1);
-                transform.position = reel[currFrameIndex].position;
-                transform.rotation = reel[currFrameIndex].rotation;
                 if (currFrameIndex == reel.Count - 1)
                 {
                     tM.Play();
+                    break;
                 }
+                currFrameIndex = Mathf.Clamp(currFrameIndex + Mathf.CeilToInt(tM.speed), 0, reel.Count - 1);
+                transform.position = reel[currFrameIndex].position;
+                transform.rotation = reel[currFrameIndex].rotation;
                 break;
             default:
                 break;
