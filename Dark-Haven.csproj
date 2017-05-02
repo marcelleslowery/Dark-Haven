@@ -99,6 +99,7 @@
     <Compile Include="Assets\basicAI.cs" />
     <Compile Include="Assets\buttonScript.cs" />
     <Compile Include="Assets\cameraTimeTracker.cs" />
+    <Compile Include="Assets\deathTracker.cs" />
     <Compile Include="Assets\nextScene.cs" />
     <Compile Include="Assets\patrolAndChaseAI.cs" />
     <Compile Include="Assets\pendulumScript.cs" />

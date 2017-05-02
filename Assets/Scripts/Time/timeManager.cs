@@ -165,6 +165,12 @@ public class timeManager : MonoBehaviour
         cameraTracker.FastForward();
         
     }
+    
+    public void setMagicTarget(MagicTarget t)
+    {
+        Play();
+        target = t;
+    }
 
     public enum MagicTarget
     {
