@@ -50,7 +50,7 @@ public class timeTracker : MonoBehaviour, ITimeTracker
                 transform.rotation = reel[currFrameIndex].rotation;
                 if (currFrameIndex == reel.Count - 1)
                 {
-                    Play();
+                    tM.Play();
                 }
                 break;
             default:
