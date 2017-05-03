@@ -5,6 +5,8 @@ Sara Jacks - sara.jacks17@yahoo.com - sjacks3
 Marcelles Lowery - mlowery30@gatech.edu - mlowery30
 Alex Poole - alexpoole5751@gmail.com - apoole32
 
+Github Link: https://github.com/marcelleslowery/Dark-Haven
+
 Requirements Completed:
 	o 3D Game Feel Game
 		- Each level has a way to succeed (go on to next level/finish by reaching end) or die.
