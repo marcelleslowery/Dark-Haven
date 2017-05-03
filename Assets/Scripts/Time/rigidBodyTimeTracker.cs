@@ -7,6 +7,8 @@ public class rigidBodyTimeTracker : timeTracker
 {
 
     protected Rigidbody rB;
+    public bool permanent = true;
+    public bool destroyAtZero = false;
 
     override protected void Start()
     {
@@ -29,8 +31,21 @@ public class rigidBodyTimeTracker : timeTracker
                 break;
             case State.REWIND:
                 currFrameIndex = Mathf.Clamp(currFrameIndex - Mathf.CeilToInt(tM.speed), 0, reel.Count - 1);
+                if(!permanent)
+                {
+                    if(currFrameIndex <= 0 && destroyAtZero)
+                    {
+                        tM.unsubscribeFromTime(this);
+                        Destroy(this.gameObject);
+                    }
+
+                    rB.isKinematic = !reel[currFrameIndex].exists;
+                    this.GetComponent<Renderer>().enabled = reel[currFrameIndex].exists;
+                    this.GetComponent<Collider>().enabled = reel[currFrameIndex].exists;
+                }
                 transform.position = reel[currFrameIndex].position;
                 transform.rotation = reel[currFrameIndex].rotation;
+
                 break;
             case State.FASTFORWARD:
                 if (currFrameIndex == reel.Count - 1)
@@ -55,6 +70,8 @@ public class rigidBodyTimeTracker : timeTracker
         f.velocity = rB.velocity;
         f.angularVelocity = rB.angularVelocity;
         f.gravity = rB.useGravity;
+        try { f.exists = this.GetComponent<Renderer>().enabled; }
+        catch { f.exists = true; };
         return f;
     }
 

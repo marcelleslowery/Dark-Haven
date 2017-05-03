@@ -15,7 +15,16 @@ public class buttonScript : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         transform.position = upPosition + new Vector3(0, -buttonDepth, 0);
-        foreach(actionable a in actionableList)
+        foreach (actionable a in actionableList)
+        {
+            a.PositiveAction();
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        transform.position = upPosition + new Vector3(0, -buttonDepth, 0);
+        foreach (actionable a in actionableList)
         {
             a.PositiveAction();
         }

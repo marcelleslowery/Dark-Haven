@@ -17,6 +17,7 @@ public class timeManager : MonoBehaviour
     public float maxSpeed = 100.0f;
 
     private timeTracker.State state;
+    private ResourcesManager rmanager;
 
     void Start()
     {
@@ -34,6 +35,7 @@ public class timeManager : MonoBehaviour
         }
         cameraTracker = FindObjectOfType<cameraTimeTracker>();
         target = MagicTarget.ENVIRONMENT;
+        rmanager = FindObjectOfType<ResourcesManager>();
     }
 
     // Update is called once per frame
@@ -44,22 +46,37 @@ public class timeManager : MonoBehaviour
             Play();
         }
 
-        if (Input.GetButtonDown("Pause") || Input.GetButtonUp("Rewind"))
+        if ((Input.GetButtonDown("Pause") || Input.GetButtonUp("Rewind")) && rmanager.Pauses > 0)
         {
+            if (state != timeTracker.State.PAUSE)
+            {
+                rmanager.Pauses -= 1;
+                rmanager.UpdateHUD();
+            }
             Pause();
         }
 
-        if (Input.GetButtonDown("Rewind"))
+        if (Input.GetButtonDown("Rewind") && rmanager.Rewinds > 0)
         {
+            if (state != timeTracker.State.REWIND)
+            {
+                rmanager.Rewinds -= 1;
+                rmanager.UpdateHUD();
+            }
             Rewind();
         }
 
-        if (Input.GetButtonDown("FastForward"))
+        if (Input.GetButtonDown("FastForward") && rmanager.FastForwards > 0)
         {
+            if (state != timeTracker.State.FASTFORWARD)
+            {
+                rmanager.FastForwards -= 1;
+                rmanager.UpdateHUD();
+            }
             FastForward();
         }
 
-        if(Input.GetButtonDown("SwitchMagicTarget"))
+        if (Input.GetButtonDown("SwitchMagicTarget"))
         {
             target = (MagicTarget) (((int) target + 1) % System.Enum.GetNames(typeof(MagicTarget)).Length);
         }
@@ -169,6 +186,30 @@ public class timeManager : MonoBehaviour
     {
         PLAYER,
         ENVIRONMENT
+    }
+
+    public void subscribeToTime(MonoBehaviour t)
+    {
+        if(t is rigidBodyTimeTracker)
+        {
+            trackedObjects.Add((rigidBodyTimeTracker) t);
+        }
+        else if (t is aiTimeTracker)
+        {
+            trackedAI.Add((aiTimeTracker) t);
+        }
+    }
+
+    public void unsubscribeFromTime(MonoBehaviour t)
+    {
+        if (t is rigidBodyTimeTracker)
+        {
+            trackedObjects.Remove((rigidBodyTimeTracker)t);
+        }
+        else if (t is aiTimeTracker)
+        {
+            trackedAI.Remove((aiTimeTracker)t);
+        }
     }
 
 
