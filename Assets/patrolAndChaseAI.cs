@@ -190,7 +190,6 @@ public class patrolAndChaseAI : MonoBehaviour {
     public save getSave()
     {
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        Debug.Log(stateInfo.normalizedTime);
         return new save(state, patrolIndex, flipflop, agent.nextPosition, agent.velocity, stateInfo.normalizedTime, 0, stateInfo.shortNameHash);
     }
 
@@ -202,7 +201,6 @@ public class patrolAndChaseAI : MonoBehaviour {
         agent.nextPosition = saveFile.aP;
         agent.velocity = saveFile.aV;
         animator.enabled = true;
-        Debug.Log(saveFile.t);
 
         animator.Play(saveFile.sN, saveFile.l, saveFile.t);
         animator.Update(Time.deltaTime);

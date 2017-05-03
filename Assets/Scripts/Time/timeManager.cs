@@ -25,16 +25,9 @@ public class timeManager : MonoBehaviour
         trackedAI = new List<aiTimeTracker>();
         foreach (timeTracker t in FindObjectsOfType<timeTracker>())
         {
-            if(t is playerTimeTracker)
-            {
-                playerTracker = (playerTimeTracker) t;
-            }
-            else
-            {
-                trackedObjects.Add(t);
-            }
-            
+            trackedObjects.Add(t); 
         }
+        playerTracker = FindObjectOfType<playerTimeTracker>();
         foreach(aiTimeTracker t in FindObjectsOfType<aiTimeTracker>())
         {
             trackedAI.Add(t);

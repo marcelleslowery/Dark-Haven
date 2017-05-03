@@ -52,9 +52,6 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -70,9 +67,6 @@
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
     </Reference>
@@ -87,6 +81,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BasicBehaviour.cs" />
     <Compile Include="Assets\Scripts\CamController.cs" />
     <Compile Include="Assets\Scripts\GateController.cs" />
     <Compile Include="Assets\Scripts\LRFloaters.cs" />
@@ -94,6 +89,7 @@
     <Compile Include="Assets\Scripts\LevelScripts\ControlsTutorial.cs" />
     <Compile Include="Assets\Scripts\LevelScripts\HintManagement.cs" />
     <Compile Include="Assets\Scripts\LevelScripts\ThirdPersonOrbitCam.cs" />
+    <Compile Include="Assets\Scripts\MoveBehaviour.cs" />
     <Compile Include="Assets\Scripts\RockFallController.cs" />
     <Compile Include="Assets\Scripts\Time\aiTimeTracker.cs" />
     <Compile Include="Assets\Scripts\Time\playerTimeTracker.cs" />
@@ -102,6 +98,7 @@
     <Compile Include="Assets\Scripts\Time\timeTracker.cs" />
     <Compile Include="Assets\Scripts\UDFloaters.cs" />
     <Compile Include="Assets\Scripts\actionableDoor.cs" />
+    <Compile Include="Assets\actionableFalling.cs" />
     <Compile Include="Assets\basicAI.cs" />
     <Compile Include="Assets\buttonScript.cs" />
     <Compile Include="Assets\cameraTimeTracker.cs" />
