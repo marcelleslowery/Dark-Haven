@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\actionableDoor.cs" />
      <Compile Include="Assets\actionableFalling.cs" />
      <Compile Include="Assets\basicAI.cs" />
+     <Compile Include="Assets\breakableBehavior.cs" />
      <Compile Include="Assets\buttonScript.cs" />
      <Compile Include="Assets\cameraTimeTracker.cs" />
      <Compile Include="Assets\deathTracker.cs" />
