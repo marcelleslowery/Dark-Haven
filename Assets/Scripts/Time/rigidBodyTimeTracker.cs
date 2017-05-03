@@ -54,6 +54,7 @@ public class rigidBodyTimeTracker : timeTracker
         f.rotation = transform.rotation;
         f.velocity = rB.velocity;
         f.angularVelocity = rB.angularVelocity;
+        f.gravity = rB.useGravity;
         return f;
     }
 
@@ -76,6 +77,7 @@ public class rigidBodyTimeTracker : timeTracker
         rB.isKinematic = false;
         rB.velocity = reel[currFrameIndex].velocity;
         rB.angularVelocity = reel[currFrameIndex].angularVelocity;
+        rB.useGravity = reel[currFrameIndex].gravity;
         reel.RemoveRange(currFrameIndex + 1, reel.Count - currFrameIndex - 1);
     }
 

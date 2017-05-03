@@ -104,6 +104,7 @@ public class timeTracker : MonoBehaviour, ITimeTracker
         public Quaternion rotation;
         public Vector3 velocity;
         public Vector3 angularVelocity;
+        public bool gravity;
     }
 
     private void OnDrawGizmos()

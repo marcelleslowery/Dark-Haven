@@ -15,6 +15,7 @@ public class aiTimeTracker : MonoBehaviour, ITimeTracker
     private patrolAndChaseAI ai;
 
     private timeManager tM;
+    private Animator animator;
 
     virtual protected void Start()
     {
@@ -24,6 +25,7 @@ public class aiTimeTracker : MonoBehaviour, ITimeTracker
         ai = GetComponent<patrolAndChaseAI>();
         rB = GetComponent<Rigidbody>();
         tM = FindObjectOfType<timeManager>();
+        animator = GetComponent<Animator>();
     }
 
     virtual protected void Update()
@@ -38,6 +40,7 @@ public class aiTimeTracker : MonoBehaviour, ITimeTracker
                 break;
             case State.REWIND:
                 currFrameIndex = Mathf.Clamp(currFrameIndex - Mathf.CeilToInt(tM.speed), 0, reel.Count - 1);
+                Debug.Log(Mathf.CeilToInt(tM.speed));
                 transform.position = reel[currFrameIndex].position;
                 transform.rotation = reel[currFrameIndex].rotation;
                 ai.fromSave(reel[currFrameIndex].aiSave);
@@ -91,9 +94,8 @@ public class aiTimeTracker : MonoBehaviour, ITimeTracker
         rB.velocity = reel[currFrameIndex].velocity;
         rB.angularVelocity = reel[currFrameIndex].angularVelocity;
         reel.RemoveRange(currFrameIndex + 1, reel.Count - currFrameIndex - 1);
-        ai.unfreeze();
         ai.fromSave(reel[currFrameIndex].aiSave);
-        
+        ai.unfreeze();
     }
 
     virtual public void FastForward()

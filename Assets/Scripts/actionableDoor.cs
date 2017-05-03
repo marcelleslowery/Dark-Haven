@@ -23,10 +23,18 @@ public class actionableDoor : actionable {
     {
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<BoxCollider>().enabled = false;
+        foreach(MeshRenderer mR in GetComponentsInChildren<MeshRenderer>())
+        {
+            mR.enabled = false;
+        }
     }
     override public void NegativeAction()
     {
         GetComponent<MeshRenderer>().enabled = true;
         GetComponent<BoxCollider>().enabled = true;
+        foreach (MeshRenderer mR in GetComponentsInChildren<MeshRenderer>())
+        {
+            mR.enabled = true;
+        }
     }
 }

@@ -38,6 +38,7 @@ public class patrolAndChaseAI : MonoBehaviour {
 
         agent.updateRotation = true;
         agent.updatePosition = false;
+        
     }
 	
 	// Update is called once per frame
@@ -167,20 +168,30 @@ public class patrolAndChaseAI : MonoBehaviour {
         public int ff;
         public Vector3 aP;
         public Vector3 aV;
+        public float t;
+        public int l;
+        public int sN;
 
-        public save(State state, int patrolIndex, int flipflop, Vector3 agentPos, Vector3 agentVel)
+
+        public save(State state, int patrolIndex, int flipflop, Vector3 agentPos, Vector3 agentVel, float time, int layer, int stateNameHash)
         {
             s = state;
             pI = patrolIndex;
             ff = flipflop;
             aP = agentPos;
             aV = agentVel;
+
+            t = time;
+            l = layer;
+            sN = stateNameHash;
         }
     }
 
     public save getSave()
     {
-        return new save(state, patrolIndex, flipflop, agent.nextPosition, agent.velocity);
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        Debug.Log(stateInfo.normalizedTime);
+        return new save(state, patrolIndex, flipflop, agent.nextPosition, agent.velocity, stateInfo.normalizedTime, 0, stateInfo.shortNameHash);
     }
 
     public void fromSave(save saveFile)
@@ -190,6 +201,12 @@ public class patrolAndChaseAI : MonoBehaviour {
         flipflop = saveFile.ff;
         agent.nextPosition = saveFile.aP;
         agent.velocity = saveFile.aV;
+        animator.enabled = true;
+        Debug.Log(saveFile.t);
+
+        animator.Play(saveFile.sN, saveFile.l, saveFile.t);
+        animator.Update(Time.deltaTime);
+        animator.enabled = false;
     }
 
     public void freeze()
@@ -201,6 +218,7 @@ public class patrolAndChaseAI : MonoBehaviour {
 
     public void unfreeze()
     {
+        
         animator.enabled = true;
         agent.enabled = true;
         frozen = false;
