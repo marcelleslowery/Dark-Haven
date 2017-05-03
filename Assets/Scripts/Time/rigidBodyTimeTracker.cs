@@ -70,7 +70,8 @@ public class rigidBodyTimeTracker : timeTracker
         f.velocity = rB.velocity;
         f.angularVelocity = rB.angularVelocity;
         f.gravity = rB.useGravity;
-        f.exists = this.GetComponent<Renderer>().enabled;
+        try { f.exists = this.GetComponent<Renderer>().enabled; }
+        catch { f.exists = true; };
         return f;
     }
 
