@@ -81,7 +81,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
+    <Compile Include="Assets\EffectExamples\Shared\Scripts\GunAim.cs" />
+    <Compile Include="Assets\EffectExamples\Shared\Scripts\GunShoot.cs" />
+    <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
+    <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\HUDManager.cs" />
+    <Compile Include="Assets\InputMethod.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -140,7 +146,9 @@
     <Compile Include="Assets\Scripts\LevelScripts\HintManagement.cs" />
     <Compile Include="Assets\Scripts\LevelScripts\ThirdPersonOrbitCam.cs" />
     <Compile Include="Assets\Scripts\MoveBehaviour.cs" />
+    <Compile Include="Assets\Scripts\NavigateToSplash.cs" />
     <Compile Include="Assets\Scripts\RockFallController.cs" />
+    <Compile Include="Assets\Scripts\ScreenManager.cs" />
     <Compile Include="Assets\Scripts\Time\aiTimeTracker.cs" />
     <Compile Include="Assets\Scripts\Time\playerTimeTracker.cs" />
     <Compile Include="Assets\Scripts\Time\rigidBodyTimeTracker.cs" />
@@ -148,6 +156,7 @@
     <Compile Include="Assets\Scripts\Time\timeTracker.cs" />
     <Compile Include="Assets\Scripts\UDFloaters.cs" />
     <Compile Include="Assets\Scripts\actionableDoor.cs" />
+    <Compile Include="Assets\SelectOnStart.cs" />
     <Compile Include="Assets\actionableFalling.cs" />
     <Compile Include="Assets\attachToBone.cs" />
     <Compile Include="Assets\basicAI.cs" />
@@ -155,6 +164,7 @@
     <Compile Include="Assets\buttonScript.cs" />
     <Compile Include="Assets\cameraTimeTracker.cs" />
     <Compile Include="Assets\deathTracker.cs" />
+    <Compile Include="Assets\moveOnPath.cs" />
     <Compile Include="Assets\nextScene.cs" />
     <Compile Include="Assets\patrolAndChaseAI.cs" />
     <Compile Include="Assets\pendulumScript.cs" />
@@ -206,6 +216,7 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
+    <None Include="Assets\Standard Assets\Effects\Bloom\Resources\Bloom.shader" />
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
@@ -274,6 +285,7 @@
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
+    <None Include="Assets\Standard Assets\Effects\LensAberrations\Resources\LensAberrations.shader" />
     <None Include="Assets\Standard Assets\Effects\Projectors\Guidelines.txt" />
     <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorLight.shader" />
     <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
