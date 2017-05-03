@@ -1,9 +1,9 @@
 Team Lionheart
 John Blum - johnwblum@gmail.com - jblum7
 Mathew Deeb - 
-Sara Jacks - sjacks3@gatech.edu - sjacks3
+Sara Jacks - sara.jacks17@yahoo.com - sjacks3
 Marcelles Lowery - mlowery30@gatech.edu - mlowery30
-Alex Poole - apoole32
+Alex Poole - alexpoole5751@gmail.com - apoole32
 
 Requirements Completed:
 	o 3D Game Feel Game
