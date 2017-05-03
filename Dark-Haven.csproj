@@ -169,6 +169,7 @@
     <Compile Include="Assets\patrolAndChaseAI.cs" />
     <Compile Include="Assets\pendulumScript.cs" />
     <Compile Include="Assets\playerControl.cs" />
+    <Compile Include="Assets\timedRestart.cs" />
     <Compile Include="Assets\torch\scene\script\TorchSlider.cs" />
     <Compile Include="Assets\torch\scene\script\Torchslider2.cs" />
     <Compile Include="Assets\torch\scripts\Torchelight.cs" />
