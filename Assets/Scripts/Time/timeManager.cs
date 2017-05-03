@@ -10,13 +10,13 @@ public class timeManager : MonoBehaviour
     List<aiTimeTracker> trackedAI;
     playerTimeTracker playerTracker;
     cameraTimeTracker cameraTracker;
-    MagicTarget target;
+    public MagicTarget target;
     public float accelRate = 1.4f;
 
     public float speed = 0.0f;
     public float maxSpeed = 100.0f;
 
-    private timeTracker.State state;
+    public timeTracker.State state;
     private ResourcesManager rmanager;
 
     void Start()
