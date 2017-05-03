@@ -170,6 +170,7 @@
     <Compile Include="Assets\deathTracker.cs" />
     <Compile Include="Assets\moveOnPath.cs" />
     <Compile Include="Assets\nextScene.cs" />
+    <Compile Include="Assets\onPlayerHud.cs" />
     <Compile Include="Assets\patrolAndChaseAI.cs" />
     <Compile Include="Assets\pendulumScript.cs" />
     <Compile Include="Assets\playerControl.cs" />
@@ -221,7 +222,7 @@
     <None Include="Assets\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
-    <None Include="Assets\Standard Assets\Effects\Bloom\Resources\Bloom.shader" />
+    <None Include="Assets\Shaders\3DText.shader" />
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
