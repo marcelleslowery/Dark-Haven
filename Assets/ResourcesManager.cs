@@ -14,7 +14,10 @@ public class ResourcesManager : MonoBehaviour {
 	void Start () {
         hudmanager = GetComponent<HUDManager>();
         hudmanager.UpdateHUDValues(Pauses, Rewinds, FastForwards);
-        hudmanager.ObjectiveText.text = LevelObjective;
+        if (hudmanager.ObjectiveText != null)
+        {
+            hudmanager.ObjectiveText.text = LevelObjective;
+        }
 	}
 	
 	// Update is called once per frame
