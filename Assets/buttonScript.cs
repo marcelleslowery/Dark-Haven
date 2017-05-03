@@ -7,8 +7,12 @@ public class buttonScript : MonoBehaviour {
     Vector3 upPosition;
     public float buttonDepth = 0.5f;
     public List<actionable> actionableList;
+	AudioSource myAudio;
+	public AudioClip hit;
+
     private void Start()
     {
+		myAudio = gameObject.GetComponent<AudioSource>();
         upPosition = transform.position;
     }
 
@@ -19,6 +23,7 @@ public class buttonScript : MonoBehaviour {
         {
             a.PositiveAction();
         }
+		Invoke ("PlaySmash", 0);
     }
 
     private void OnTriggerStay(Collider other)
@@ -37,4 +42,8 @@ public class buttonScript : MonoBehaviour {
             a.NegativeAction();
         }
     }
+
+	void PlaySmash(){
+		myAudio.PlayOneShot (hit);
+	}
 }
