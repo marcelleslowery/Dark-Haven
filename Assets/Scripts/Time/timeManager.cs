@@ -171,5 +171,29 @@ public class timeManager : MonoBehaviour
         ENVIRONMENT
     }
 
+    public void subscribeToTime(MonoBehaviour t)
+    {
+        if(t is rigidBodyTimeTracker)
+        {
+            trackedObjects.Add((rigidBodyTimeTracker) t);
+        }
+        else if (t is aiTimeTracker)
+        {
+            trackedAI.Add((aiTimeTracker) t);
+        }
+    }
+
+    public void unsubscribeFromTime(MonoBehaviour t)
+    {
+        if (t is rigidBodyTimeTracker)
+        {
+            trackedObjects.Remove((rigidBodyTimeTracker)t);
+        }
+        else if (t is aiTimeTracker)
+        {
+            trackedAI.Remove((aiTimeTracker)t);
+        }
+    }
+
 
 }

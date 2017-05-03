@@ -105,6 +105,7 @@ public class timeTracker : MonoBehaviour, ITimeTracker
         public Vector3 velocity;
         public Vector3 angularVelocity;
         public bool gravity;
+        public bool exists;
     }
 
     private void OnDrawGizmos()
