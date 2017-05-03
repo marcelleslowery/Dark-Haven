@@ -15,9 +15,9 @@ public class UDFloaters : MonoBehaviour {
 		stopped = false;
 	}
 
-	void Update () {
+	void LateUpdate () {
 
-		if (floater.position.y >= 18f) {
+		if (floater.position.y >= 16f) {
 			myPos.y = -0.1f;
 		}
 		if (floater.position.y <= 7f) {
